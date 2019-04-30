@@ -1,3 +1,0 @@
-function coba() {
-   message("jos");
-}
