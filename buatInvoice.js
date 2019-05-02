@@ -8,7 +8,12 @@ function buatInvoice(data) {
   var pengirim = data["Pengirim"];
   var nomorD = data["Pengirim"];
   var listO = data["List Order"];
-  var 
+  var eksp = data["Ekspedisi"];
+  var beratPkt = data["Berat Paket"];
+  var listB = data["List Barang"];
+  var diskon = data["Diskon"];
+  var subtot = data["Subtotal"];
+  var total = data["Total"];
   
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
