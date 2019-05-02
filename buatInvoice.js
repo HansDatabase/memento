@@ -823,7 +823,3 @@ var template =
 
 return template;
 }
-
-
-return template;
-}
