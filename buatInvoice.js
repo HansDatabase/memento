@@ -1,7 +1,7 @@
 //FUNGSI POTONG TEKS BARANG
 // contoh tek = "alma , alina,red,115,1 "
 function potong(tek,batas) {
-  var tmp = tek.split(batas);
+  var tmp = tek.toUpperCase().split(batas);
   if (tmp.length==3) {
     for (var i in tmp) {
       tmp[i] = tmp[i].trim()};
@@ -227,7 +227,7 @@ var template =
 '<div id="printable" class=\'print-theme\'>'+'\n'+
 '	<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="1">'+'\n'+
 '	<tr>'+'\n'+
-'				<td width="20%" rowspan="3" style="" class="text-center shop-logo">'+'\n'+
+'				<td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
 '			<img class="img-logo" src="" width="120">'+'\n'+
 '			<div class="shop-info">'+'\n'+
 '				<h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4>'+'\n'+
@@ -237,7 +237,7 @@ var template =
 '		</td>'+'\n'+
 '		'+'\n'+
 '		<td class="plabel" valign="bottom">'+'\n'+
-'			<h4 class="po-number" style="display:none;font-size: 1.15rem; margin-bottom: 7px;">PO#'+'\n'+
+'			<h4 class="po-number" style="display:block;font-size: 1.15rem; margin-bottom: 7px;">PO#'+'\n'+
 ''+id+'</h4>'+'\n'+
 '			Kepada:'+'\n'+
 '		</td>'+'\n'+
@@ -474,11 +474,11 @@ listLabel.trim()+
 '	</tr>'+'\n'+
 '	<tr class="orderdetail_v2">'+'\n'+
 '		<td class="py" colspan="3">'+'\n'+
-'			<p class="pb-025"><strong>ORDER <span class="po-number-v2" style="display:none;">PO#'+id+'</span> <span class="tgl_order_v2" style="display:none;">(Senin, 1 Apr 2019)</strong></p>'+'\n'+
+'			<p class="pb-025"><strong>ORDER <span class="po-number-v2" style="display:block;">PO#'+id+'</span> <span class="tgl_order_v2" style="display:none;">(Senin, 1 Apr 2019)</strong></p>'+'\n'+
 '			<ul class="product-list" style="margin-bottom: 26px;">'+'\n'+
 '								<li>'+'\n'+
 '					<span class="left">'+'\n'+
-'					'+listO+'  </span>'+'\n'+
+'					'+listLabel+'</span>'+'\n'+
 '					<span class="right"></span>'+'\n'+
 '				</li>'+'\n'+
 '							</ul>'+'\n'+
@@ -774,7 +774,6 @@ listLabel.trim()+
 '		var showHide = {'+'\n'+
 '			\'input#toggle_fragile\' 				: \'.fragile\','+'\n'+
 '			\'input#toggle_order\' 				: \'.orderdetail\','+'\n'+
-'			\'input#toggle_logo\' 				: \'.shop-logo\','+'\n'+
 '			\'input#toggle_expedisi\' 			: \'.expedisi\','+'\n'+
 '			\'input#toggle_qrcode\' 				: \'.qrcode\','+'\n'+
 '			\'input#toggle_shop_info\' 			: \'.shop-info\','+'\n'+
