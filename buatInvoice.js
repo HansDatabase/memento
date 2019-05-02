@@ -20,7 +20,7 @@ function buatInvoice(data) {
   var alamat = data["Alamat"];
   var nomorP = data["NomorP"];
   var pengirim = data["Pengirim"];
-  var nomorD = data["Pengirim"];
+  var nomorD = data["NomorD"];
   var listO = data["List Order"];
   var eksp = data["Ekspedisi"];
   var serv = data["Service"];
