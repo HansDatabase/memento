@@ -448,7 +448,7 @@ b = index dari:
 '				NabiilahStore			</span>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-'</table>'+'\n'+
+'</table>'+'\n';
 //TABEL 4
   
 var template =
