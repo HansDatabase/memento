@@ -56,8 +56,8 @@ b = index dari:
 	'			<td colspan="2">'+barangs[x][1]+'</td>'+'\n'+
 	'			<td>1</td>'+'\n'+
 	'			<td></td>'+'\n'+
-	'			<td>'+barangs[x][2]+'</td>'+'\n'+
-	'			<td>'+barangs[x][2]+'</td>'+'\n'+
+	'			<td>Rp. '+barangs[x][2]+'</td>'+'\n'+
+	'			<td>Rp. '+barangs[x][2]+'</td>'+'\n'+
 	'		</tr>'+'\n';
   }
 var template =
@@ -345,25 +345,25 @@ listInvoice+
 '		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '			<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
 '			<td></td>'+'\n'+
-'			<td>'+beratPkt+'</td>'+'\n'+
+'			<td>'+beratPkt+' gr</td>'+'\n'+
 '			<td></td>'+'\n'+
-'			<td>Rp'+ongkir+'</td>'+'\n'+
+'			<td>Rp. '+ongkir+'</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '			<td colspan="5">Diskon</td>'+'\n'+
-'			<td>Rp'+diskon+'</td>'+'\n'+
+'			<td>Rp. '+diskon+'</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '			<td colspan="5">Asuransi</td>'+'\n'+
-'			<td>Rp0</td>'+'\n'+
+'			<td>Rp. 0</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '			<td colspan="5">Biaya Tambahan </td>'+'\n'+
-'			<td>Rp0</td>'+'\n'+
+'			<td>Rp. 0</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr style="line-height: 2em;font-size: 12px;">'+'\n'+
 '			<td colspan="5"><span style="font-weight: 700; font-size: 1rem;">TOTAL</span></td>'+'\n'+
-'		<td><span style="font-weight: 700; font-size: 1rem;">Rp'+total+'</span></td>'+'\n'+
+'		<td><span style="font-weight: 700; font-size: 1rem;">Rp. '+total+'</span></td>'+'\n'+
 '	</tr>'+'\n'+
 ''+'\n'+
 '	<tr>'+'\n'+
