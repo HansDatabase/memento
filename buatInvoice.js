@@ -1,5 +1,6 @@
 function buatInvoice(data) {
   var id = data["ID"];
+  var penerima = data["Penerima"];
   
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
@@ -203,7 +204,7 @@ var template =
 ''+'\n'+
 '	<tr>'+'\n'+
 '		<td width="40%" valign="top">'+'\n'+
-'			<p class="receiver-name ls-1"> Titin Wuryanti</p>'+'\n'+
+'			<p class="receiver-name ls-1"> '+penerima+'</p>'+'\n'+
 '			<p class="address">Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
 '				Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
 '				Provinsi Bali <br>'+'\n'+
@@ -278,7 +279,7 @@ var template =
 ''+'\n'+
 '	<tr style="margin: 0; padding: 20px;">'+'\n'+
 '		<td colspan="4">'+'\n'+
-'			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">Titin Wuryanti</span></strong></p>'+'\n'+
+'			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">'+penerima+'</span></strong></p>'+'\n'+
 '			<p style="font-size: 12px;line-height: 2em;">Terima kasih telah berbelanja di '+'\n'+
 '			NabiilahStore. Berikut adalah rincian orderan Anda:</p>'+'\n'+
 '		</td>'+'\n'+
@@ -408,7 +409,7 @@ var template =
 '		</td>'+'\n'+
 '		<td colspan="5">'+'\n'+
 '			<p style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
-'				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">Titin Wuryanti</span><br>'+'\n'+
+'				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">'+penerima+'</span><br>'+'\n'+
 '				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
 '				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
 '				Prov. Bali <br>'+'\n'+
@@ -437,7 +438,7 @@ var template =
 '			<p class="lead pb-025">TO:</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="py bb-1" colspan="2">'+'\n'+
-'			<span class="ttu ls-1"><strong>Titin Wuryanti</strong></span> <br>'+'\n'+
+'			<span class="ttu ls-1"><strong>'+penerima+'</strong></span> <br>'+'\n'+
 '			Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
 '			Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
 '			Provinsi Bali <br>'+'\n'+
@@ -489,7 +490,7 @@ var template =
 '		</td>'+'\n'+
 '		<td class="text-right" colspan="3">'+'\n'+
 '			<p class="pb-0">'+'\n'+
-'				To:<span>Titin Wuryanti</span>'+'\n'+
+'				To:<span>'+penerima+'</span>'+'\n'+
 '			</p>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
