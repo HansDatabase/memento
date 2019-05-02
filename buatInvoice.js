@@ -202,7 +202,8 @@ var template =
 '		</td>'+'\n'+
 '		'+'\n'+
 '		<td class="plabel" valign="bottom">'+'\n'+
-'			<h4 class="po-number" style="display:none;font-size: 1.15rem; margin-bottom: 7px;">PO#'+'\n'+id+'</h4>'+'\n'+
+'			<h4 class="po-number" style="display:none;font-size: 1.15rem; margin-bottom: 7px;">PO#'+'\n'+
+''+id+'</h4>'+'\n'+
 '			Kepada:'+'\n'+
 '		</td>'+'\n'+
 '		<td class="plabel orderdetail" valign="bottom">'+'\n'+
@@ -217,8 +218,10 @@ var template =
 ''+'\n'+
 '	<tr>'+'\n'+
 '		<td width="40%" valign="top">'+'\n'+
-'			<p class="receiver-name ls-1"> '+penerima+'</p>'+'\n'+
-'			<p class="address">'+alamat+'\n'+
+'			<p class="receiver-name ls-1"> YULLI HENIK</p>'+'\n'+
+'			<p class="address">Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
+'				Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
+'				Provinsi Bali <br>'+'\n'+
 '				Telp: 0818558385</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td style="font-size: 12px;" width="30%" valign="top" class="orderdetail">'+'\n'+
@@ -252,7 +255,7 @@ var template =
 '				NabiilahStore<br>082242783494			</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td>'+'\n'+
-'			<p><strong>NOTE: </strong>A</p>'+'\n'+
+'			<p><strong>KODE CS: </strong>A</p>'+'\n'+
 '		 				 	<div class="expedisi">'+'\n'+
 '			 		WAHANA-Normal Service			 		(0.75 Kg)'+'\n'+
 ''+'\n'+
@@ -290,7 +293,7 @@ var template =
 ''+'\n'+
 '	<tr style="margin: 0; padding: 20px;">'+'\n'+
 '		<td colspan="4">'+'\n'+
-'			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">'+penerima+'</span></strong></p>'+'\n'+
+'			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">YULLI HENIK</span></strong></p>'+'\n'+
 '			<p style="font-size: 12px;line-height: 2em;">Terima kasih telah berbelanja di '+'\n'+
 '			NabiilahStore. Berikut adalah rincian orderan Anda:</p>'+'\n'+
 '		</td>'+'\n'+
@@ -420,8 +423,10 @@ var template =
 '		</td>'+'\n'+
 '		<td colspan="5">'+'\n'+
 '			<p style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
-'				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">'+penerima+'</span><br>'+'\n'+
-'				'+alamat+'\n'+
+'				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">YULLI HENIK</span><br>'+'\n'+
+'				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
+'				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
+'				Prov. Bali <br>'+'\n'+
 '				Telp: 0818558385			</p>'+'\n'+
 ''+'\n'+
 '		</td>'+'\n'+
@@ -447,8 +452,10 @@ var template =
 '			<p class="lead pb-025">TO:</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="py bb-1" colspan="2">'+'\n'+
-'			<span class="ttu ls-1"><strong>'+penerima+'</strong></span> <br>'+'\n'+
-'			'+alamat+'\n'+
+'			<span class="ttu ls-1"><strong>YULLI HENIK</strong></span> <br>'+'\n'+
+'			Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
+'			Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
+'			Provinsi Bali <br>'+'\n'+
 '			Telp: 0818558385		</td>'+'\n'+
 '	</tr>'+'\n'+
 '	<tr class="orderdetail_v2">'+'\n'+
@@ -470,7 +477,7 @@ var template =
 '	</tr>'+'\n'+
 '			<tr class="note_v2">'+'\n'+
 '			<td class="py" colspan="3">'+'\n'+
-'				<p class="p-0"><strong>NOTE: </strong>A</p>			</td>'+'\n'+
+'				<p class="p-0"><strong>KODE CS: </strong>A</p>			</td>'+'\n'+
 '		</tr>'+'\n'+
 '	</table>'+'\n'+
 ''+'\n'+
@@ -497,7 +504,7 @@ var template =
 '		</td>'+'\n'+
 '		<td class="text-right" colspan="3">'+'\n'+
 '			<p class="pb-0">'+'\n'+
-'				To:<span>'+penerima+'</span>'+'\n'+
+'				To:<span>YULLI HENIK</span>'+'\n'+
 '			</p>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
@@ -676,7 +683,9 @@ var template =
 '	<tr class="alamat_pengiriman">'+'\n'+
 '		<td colspan="6">'+'\n'+
 '			<p>'+'\n'+
-'				'+alamat+'\n'+
+'				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
+'				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
+'				Prov. Bali				<br>'+'\n'+
 '				Telp: 0818558385				<br>'+'\n'+
 '				<span class="kurir">Kurir: WAHANA-Normal Service</span>'+'\n'+
 '			</p>'+'\n'+
@@ -811,6 +820,10 @@ var template =
 '		onPrintFinished(window.print());'+'\n'+
 '	}'+'\n'+
 '</script>';
+
+return template;
+}
+
 
 return template;
 }
