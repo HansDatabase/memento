@@ -1,6 +1,14 @@
 function buatInvoice(data) {
   var id = data["ID"];
   var penerima = data["Penerima"];
+  var kodeCS = data["Kode CS"];
+  var waktu = data["Waktu Closing"];
+  var alamat = data["Alamat"];
+  var nomorP = data["NomorP"];
+  var pengirim = data["Pengirim"];
+  var nomorD = data["Pengirim"];
+  var listO = data["List Order"];
+  var 
   
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
