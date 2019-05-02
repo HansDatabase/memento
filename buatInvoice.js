@@ -17,6 +17,9 @@ function buatInvoice(data) {
   var total = data["Total"];
   var status = data["Status"].toUpperCase();
   
+  var jumlahBrg = listO.split(/\r\n|\r|\n/).length
+  message(jumlahBrg);
+  
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
 '<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">'+'\n'+
@@ -56,12 +59,12 @@ var template =
 '			</div>'+'\n'+
 '			<div class="checkbox">'+'\n'+
 '				<label>'+'\n'+
-'					<input type="checkbox" id="toggle_logo" checked> Shop Logo'+'\n'+
+'					<input type="checkbox" id="toggle_logo"> Shop Logo'+'\n'+
 '				</label>'+'\n'+
 '			</div>'+'\n'+
 '			<div class="checkbox">'+'\n'+
 '				<label>'+'\n'+
-'					<input type="checkbox" id="toggle_shop_info" checked> Shop Info'+'\n'+
+'					<input type="checkbox" id="toggle_shop_info"> Shop Info'+'\n'+
 '				</label>'+'\n'+
 '			</div>'+'\n'+
 '			<div class="checkbox">'+'\n'+
@@ -76,7 +79,7 @@ var template =
 '			</div>'+'\n'+
 '			<div class="checkbox">'+'\n'+
 '				<label>'+'\n'+
-'					<input type="checkbox" id="toggle_po"> No. PO'+'\n'+
+'					<input type="checkbox" id="toggle_po" checked> No. PO'+'\n'+
 '				</label>'+'\n'+
 '			</div>'+'\n'+
 '			<div class="checkbox">'+'\n'+
@@ -227,14 +230,7 @@ var template =
 '		<td style="font-size: 12px;" width="30%" valign="top" class="orderdetail">'+'\n'+
 ''+'\n'+
 '			<ul class="product-list">'+'\n'+
-'									'+'\n'+
-'					<li>	'+'\n'+
-'					'+'\n'+
-'						<span class="left">'+'\n'+
-'						'+listO+'  </span>'+'\n'+
-'						<span class="right"></span>'+'\n'+
-'					</li>'+'\n'+
-''+'\n'+
+'<li><span class="left">'+listO+'</span></li>\n'+
 '							</ul>'+'\n'+
 '		</td>'+'\n'+
 ''+'\n'+
@@ -249,7 +245,7 @@ var template =
 '		<td>'+'\n'+
 '			<p><strong>KODE CS: </strong>'+kodeCS+'</p>'+'\n'+
 '		 				 	<div class="expedisi">'+'\n'+
-'			 		'+eksp+'-'+serv+'			 		(      )'+'\n'+
+'			 		'+eksp+'-'+serv+'			 		'+'\n'+
 ''+'\n'+
 '			 					 	</div>'+'\n'+
 ''+'\n'+
