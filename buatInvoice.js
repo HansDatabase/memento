@@ -25,6 +25,7 @@ function buatInvoice(data) {
   var eksp = data["Ekspedisi"];
   var serv = data["Service"];
   var beratPkt = data["Berat Paket"];
+  var ongkir = data["Ongkir"];
   var listB = data["List Barang"];
   var diskon = data["Diskon"];
   var subtot = data["Subtotal"];
@@ -47,8 +48,17 @@ b = index dari:
 */
 
   var listLabel = "";
+  var listInvoice = "";
   for (var x in barang) {
     listLabel += '<li><span class="left">'+barangs[x][1]+'</span></li>\n';
+	listInvoice +=
+	'		<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
+	'			<td colspan="2">'+barangs[x][1]+'</td>'+'\n'+
+	'			<td>1</td>'+'\n'+
+	'			<td></td>'+'\n'+
+	'			<td>'+barangs[x][2]+'</td>'+'\n'+
+	'			<td>'+barangs[x][2]+'</td>'+'\n'+
+	'		</tr>'+'\n';
   }
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
@@ -273,7 +283,7 @@ listLabel.trim()+
 '				'+pengirim+'<br>'+nomorD+'			</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td>'+'\n'+
-'			<p><strong>KODE CS: </strong>'+kodeCS+'</p>'+'\n'+
+'			<p><strong>KODE CS:   </strong>'+kodeCS+'</p>'+'\n'+
 '		 				 	<div class="expedisi">'+'\n'+
 '			 		'+eksp+'-'+serv+'			 		'+'\n'+
 ''+'\n'+
@@ -331,59 +341,29 @@ listLabel.trim()+
 '	</tr>'+'\n'+
 ''+'\n'+
 ''+'\n'+
-'			<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
-'			<td colspan="2">'+'\n'+
-'				 RESTA OVERALL  <span class="sku-inv" style="float:right; display: none;">P154451V01</span>			</td>'+'\n'+
-'			<td>'+'\n'+
-'				1			</td>'+'\n'+
-'			<td>'+'\n'+
-'				0.35 Kg			</td>'+'\n'+
-'			<td>Rp100.000</td>'+'\n'+
-'			<td>'+'\n'+
-'				Rp100.000			</td>'+'\n'+
+listInvoice+
+'		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
+'			<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
+'			<td></td>'+'\n'+
+'			<td>'+beratPkt+'</td>'+'\n'+
+'			<td></td>'+'\n'+
+'			<td>Rp'+ongkir+'</td>'+'\n'+
 '		</tr>'+'\n'+
-'			<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
-'			<td colspan="2">'+'\n'+
-'				 CALYSTA MAXY  MAROON<span class="sku-inv" style="float:right; display: none;">P154774V01</span>			</td>'+'\n'+
-'			<td>'+'\n'+
-'				1			</td>'+'\n'+
-'			<td>'+'\n'+
-'				0.4 Kg			</td>'+'\n'+
-'			<td>Rp130.000</td>'+'\n'+
-'			<td>'+'\n'+
-'				Rp130.000			</td>'+'\n'+
+'		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
+'			<td colspan="5">Diskon</td>'+'\n'+
+'			<td>Rp'+diskon+'</td>'+'\n'+
 '		</tr>'+'\n'+
-'	'+'\n'+
-'	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
-'		<td colspan="2">'+'\n'+
-'			<strong>'+'\n'+
-''+'\n'+
-'				'+eksp+'-'+serv+'			</strong>'+'\n'+
-'		</td>'+'\n'+
-'		<td></td>'+'\n'+
-'		<td>0.75 Kg</td>'+'\n'+
-'		<td>Rp10.000</td>'+'\n'+
-'		<td>Rp10.000</td>'+'\n'+
-'	</tr>'+'\n'+
-''+'\n'+
-'	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
-'		<td colspan="5">Diskon</td>'+'\n'+
-'		<td>Rp0</td>'+'\n'+
-'	</tr>'+'\n'+
-''+'\n'+
-'	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
-'		<td colspan="5">Asuransi</td>'+'\n'+
-'		<td>Rp0</td>'+'\n'+
-'	</tr>'+'\n'+
-''+'\n'+
-'	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
-'		<td colspan="5">Biaya Tambahan </td>'+'\n'+
-'		<td>Rp0</td>'+'\n'+
-'	</tr>'+'\n'+
-''+'\n'+
-'	<tr style="line-height: 2em;font-size: 12px;">'+'\n'+
-'		<td colspan="5"><span style="font-weight: 700; font-size: 1rem;">TOTAL</span></td>'+'\n'+
-'		<td><span style="font-weight: 700; font-size: 1rem;">Rp240.000</span></td>'+'\n'+
+'		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
+'			<td colspan="5">Asuransi</td>'+'\n'+
+'			<td>Rp0</td>'+'\n'+
+'		</tr>'+'\n'+
+'		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
+'			<td colspan="5">Biaya Tambahan </td>'+'\n'+
+'			<td>Rp0</td>'+'\n'+
+'		</tr>'+'\n'+
+'		<tr style="line-height: 2em;font-size: 12px;">'+'\n'+
+'			<td colspan="5"><span style="font-weight: 700; font-size: 1rem;">TOTAL</span></td>'+'\n'+
+'		<td><span style="font-weight: 700; font-size: 1rem;">Rp'+total+'</span></td>'+'\n'+
 '	</tr>'+'\n'+
 ''+'\n'+
 '	<tr>'+'\n'+
@@ -394,7 +374,7 @@ listLabel.trim()+
 '				'+'\n'+
 '			<tr>'+'\n'+
 '			<td style="vertical-align: top;margin: 0;padding: 10px 0;">'+'\n'+
-'				<p style="line-height: 1em;margin: 0;padding: 0 0 0 20px;font-size:12px;">KODE CS: '+kodeCS+'</p>'+'\n'+
+'				<p style="line-height: 1em;margin: 0;padding: 0 0 0 20px;font-size:12px;">KODE CS:   '+kodeCS+'</p>'+'\n'+
 '			</td>'+'\n'+
 '			<td colspan="4">'+'\n'+
 '				<p  class="note-inv" style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
@@ -486,7 +466,7 @@ listLabel.trim()+
 '	</tr>'+'\n'+
 '			<tr class="note_v2">'+'\n'+
 '			<td class="py" colspan="3">'+'\n'+
-'				<p class="p-0"><strong>KODE CS: </strong>'+kodeCS+'</p>			</td>'+'\n'+
+'				<p class="p-0"><strong>KODE CS:   </strong>'+kodeCS+'</p>			</td>'+'\n'+
 '		</tr>'+'\n'+
 '	</table>'+'\n'+
 ''+'\n'+
@@ -630,13 +610,12 @@ listLabel.trim()+
 '		</tr>'+'\n'+
 '		<tr class="note-inv">'+'\n'+
 '			<td colspan="6">'+'\n'+
-'				<p>KODE CS: '+kodeCS+'</p>'+'\n'+
+'				<p>KODE CS: </p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr class="note-inv">'+'\n'+
 '			<td colspan="6">'+'\n'+
-'				<p>'+'\n'+
-'									</p>'+'\n'+
+'				<p>'+kodeCS+'</p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		'+'\n'+
