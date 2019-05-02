@@ -1,3 +1,17 @@
+//FUNGSI POTONG TEKS BARANG
+// contoh tek = "alma , alina,red,115,1 "
+function potong(tek,batas) {
+  var tmp = tek.split(batas);
+  if (tmp.length==3) {
+    for (var i in tmp) {
+      tmp[i] = tmp[i].trim()};
+  } else {
+    message("Format keep barang salah gaess");
+    exit();
+  }
+  return tmp;
+}
+
 function buatInvoice(data) {
   var id = data["ID"];
   var penerima = data["Penerima"];
@@ -17,9 +31,25 @@ function buatInvoice(data) {
   var total = data["Total"];
   var status = data["Status"].toUpperCase();
   
-  var jumlahBrg = listO.split(/\r\n|\r|\n/).length
-  message(jumlahBrg);
-  
+  var barang = listB.split("\n");
+  var barangs = [];
+  for (var i in barang) {
+    barangs[i] = potong(barang[i],",");
+  }
+
+/*
+cara akses array barangs[a][b]
+a = index barang yg ke-a, dimulai dari 0
+b = index dari:
+    0 = barcode
+    1 = nama & warna barang
+    2 = harga
+*/
+
+  var listLabel = "";
+  for (var x in barang) {
+    listLabel += '<li><span class="left">'+barangs[x][1]+'</span></li>\n';
+  }
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
 '<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">'+'\n'+
@@ -230,7 +260,7 @@ var template =
 '		<td style="font-size: 12px;" width="30%" valign="top" class="orderdetail">'+'\n'+
 ''+'\n'+
 '			<ul class="product-list">'+'\n'+
-'<li><span class="left">'+listO+'</span></li>\n'+
+listLabel.trim()+
 '							</ul>'+'\n'+
 '		</td>'+'\n'+
 ''+'\n'+
