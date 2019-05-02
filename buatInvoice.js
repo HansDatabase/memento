@@ -1,5 +1,5 @@
 //FUNGSI POTONG TEKS BARANG
-// contoh tek = "alma , alina,red,115,1 "
+// contoh tek = "alma , alina,red,a115,1 "
 function potong(tek,batas) {
   var tmp = tek.toUpperCase().split(batas);
   if (tmp.length==3) {
@@ -10,6 +10,10 @@ function potong(tek,batas) {
     exit();
   }
   return tmp;
+}
+
+function toDuit(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function buatInvoice(data) {
@@ -37,7 +41,6 @@ function buatInvoice(data) {
   for (var i in barang) {
     barangs[i] = potong(barang[i],",");
   }
-
 /*
 cara akses array barangs[a][b]
 a = index barang yg ke-a, dimulai dari 0
@@ -49,16 +52,17 @@ b = index dari:
 
   var listLabel = "";
   var listInvoice = "";
-  for (var x in barang) {
-    listLabel += '<li><span class="left">'+barangs[x][1]+'</span></li>\n';
+  for (var i in barang) {
+    var hrg = toDuit(barangs[i][2]);
+    listLabel += '<li><span class="left">'+barangs[i][1]+'</span></li>\n';
 	listInvoice +=
-	'		<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
-	'			<td colspan="2">'+barangs[x][1]+'</td>'+'\n'+
-	'			<td>1</td>'+'\n'+
-	'			<td></td>'+'\n'+
-	'			<td>Rp. '+barangs[x][2]+'</td>'+'\n'+
-	'			<td>Rp. '+barangs[x][2]+'</td>'+'\n'+
-	'		</tr>'+'\n';
+	'	<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
+	'		<td colspan="2">'+barangs[i][1]+'</td>'+'\n'+
+	'		<td>1</td>'+'\n'+
+	'		<td></td>'+'\n'+
+	'		<td>Rp. '+hrg+'</td>'+'\n'+
+	'		<td>Rp. '+hrg+'</td>'+'\n'+
+	'	</tr>'+'\n';
   }
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
@@ -233,22 +237,15 @@ var template =
 '		<button class="btn btn-blue btn-print"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#fff" viewBox="0 0 485.212 485.212"><path d="M151.636 363.906h151.618v30.33H151.636zm-30.324-333.58h242.595v60.65h30.32v-60.65C394.23 13.596 380.667 0 363.907 0H121.313c-16.748 0-30.327 13.595-30.327 30.327v60.65h30.327v-60.65zm30.324 272.93h181.94v30.328h-181.94z"/><path d="M454.882 121.304H30.334c-16.748 0-30.327 13.59-30.327 30.324v181.956c0 16.76 13.58 30.32 30.327 30.32h60.65v90.98c0 16.765 13.58 30.327 30.328 30.327h242.595c16.76 0 30.32-13.56 30.32-30.323v-90.98h60.654c16.76 0 30.325-13.562 30.325-30.32v-181.96c0-16.732-13.56-30.323-30.32-30.323zm-90.975 333.582H121.312V272.93h242.595v181.956zm60.644-242.604c-16.76 0-30.32-13.564-30.32-30.327 0-16.73 13.56-30.327 30.32-30.327 16.768 0 30.334 13.595 30.334 30.327 0 16.762-13.567 30.327-30.33 30.327z"/></svg> Print</button>'+'\n'+
 '	</div>'+'\n'+
 '</div>'+'\n'+
-''+'\n'+
 '<div id="printable" class=\'print-theme\'>'+'\n'+
-'	<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="1">'+'\n'+
-'	<tr>'+'\n'+
-'				<td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
-'			<img class="img-logo" src="" width="120">'+'\n'+
-'			<div class="shop-info">'+'\n'+
-'				<h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4>'+'\n'+
-'				<p>Distributor baju muslim </p>'+'\n'+
-'			</div>'+'\n'+
-'			'+'\n'+
+
+'<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="1">'+'\n'+
+'	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
+'			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
+'			<div class="shop-info"><h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4><p>Distributor baju muslim </p></div>'+'\n'+
 '		</td>'+'\n'+
-'		'+'\n'+
 '		<td class="plabel" valign="bottom">'+'\n'+
-'			<h4 class="po-number" style="display:block;font-size: 1.15rem; margin-bottom: 7px;">PO#'+'\n'+
-''+id+'</h4>'+'\n'+
+'			<h4 class="po-number" style="display:block;font-size: 1.15rem; margin-bottom: 7px;">PO#'+'\n'+id+'</h4>'+'\n'+
 '			Kepada:'+'\n'+
 '		</td>'+'\n'+
 '		<td class="plabel orderdetail" valign="bottom">'+'\n'+
@@ -260,53 +257,34 @@ var template =
 '			<p>JANGAN DIBANTING!!!</p>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-''+'\n'+
-'	<tr>'+'\n'+
-'		<td width="40%" valign="top">'+'\n'+
+'	<tr><td width="40%" valign="top">'+'\n'+
 '			<p class="receiver-name ls-1"> '+penerima+'</p>'+'\n'+
-'			<p class="address">'+alamat+'<br>'+'\n'+
-'				Telp: '+nomorP+'</p>'+'\n'+
+'			<p class="address">'+alamat+'<br>Telp: '+nomorP+'</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td style="font-size: 12px;" width="30%" valign="top" class="orderdetail">'+'\n'+
-''+'\n'+
-'			<ul class="product-list">'+'\n'+
-listLabel.trim()+
-'							</ul>'+'\n'+
+'			<ul class="product-list">'+'\n'+listLabel.trim()+'</ul>'+'\n'+
 '		</td>'+'\n'+
-''+'\n'+
 '	</tr>'+'\n'+
-''+'\n'+
-'	<tr>'+'\n'+
-'		<td>'+'\n'+
+'	<tr><td>'+'\n'+
 '			<p class="plabel">Pengirim: </p>'+'\n'+
-'			<p class="sender" >'+'\n'+
-'				'+pengirim+'<br>'+nomorD+'			</p>'+'\n'+
+'			<p class="sender" >'+pengirim+'<br>'+nomorD+'</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td>'+'\n'+
-'			<p><strong>KODE CS:   </strong>'+kodeCS+'</p>'+'\n'+
-'		 				 	<div class="expedisi">'+'\n'+
-'			 		'+eksp+'-'+serv+'			 		'+'\n'+
-''+'\n'+
-'			 					 	</div>'+'\n'+
-''+'\n'+
-'			 	<div class="expedisi awb">'+'\n'+
-'			 		NO RESI : 			 	</div>'+'\n'+
-'		 	'+'\n'+
-'		 		 	</td>'+'\n'+
-''+'\n'+
+'			<p><strong>KODE CS:&nbsp&nbsp</strong>'+kodeCS+'</p>'+'\n'+
+'		 	<div class="expedisi">'+eksp+'-'+serv+'</div>'+'\n'+
+'		 	<div class="expedisi awb"></div>'+'\n'+
+'		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
+
 '<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="1">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
-'			<td style="margin: 0;" width="10%">'+'\n'+
-'			<img class="img-logo" src="" style="width: 64px;">'+'\n'+
-'		</td>'+'\n'+
+'		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" style="width: 64px;"></td>'+'\n'+
 '		<td colspan="3" style="margin: 0;vertical-align: top;">'+'\n'+
 '			<h3 style="padding:0; margin: 0.5em 0 0;">NABIILAHSTORE</h3>'+'\n'+
 '			<p>Distributor baju muslim </p>'+'\n'+
-''+'\n'+
 '		</td>'+'\n'+
-'				<td colspan="2" style="margin: 0;vertical-align: top;">'+'\n'+
+'		<td colspan="2" style="margin: 0;vertical-align: top;">'+'\n'+
 '			<h5 style="padding:0; margin:0.5em 0;">'+'\n'+
 '				<strong>Tanggal:</strong>'+'\n'+
 '				<span style="clear:both;display:block;font-weight: normal;">'+waktu+'</span>'+'\n'+
@@ -315,10 +293,8 @@ listLabel.trim()+
 '				<strong>Nomor Invoice:</strong>'+'\n'+
 '				<span style="clear:both;display:block;font-weight: normal;">INV.'+id+'</span>'+'\n'+
 '			</h5>'+'\n'+
-''+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-''+'\n'+
 '	<tr style="margin: 0; padding: 20px;">'+'\n'+
 '		<td colspan="4">'+'\n'+
 '			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">'+penerima+'</span></strong></p>'+'\n'+
@@ -327,10 +303,8 @@ listLabel.trim()+
 '		</td>'+'\n'+
 '		'+'\n'+
 '		<td colspan="2" style="font-size: 0.85rem;">'+'\n'+
-'							<strong><span style="color: #00C853;">'+status+'</span> ['+waktu+']</strong>'+'\n'+
-'						'+'\n'+
+'			<strong><span style="color: #00C853;">'+status+'</span> ['+waktu+']</strong>'+'\n'+
 '		</td>'+'\n'+
-'	'+'\n'+
 '	</tr>'+'\n'+
 '	<tr>'+'\n'+
 '		<td colspan="2" style="padding: 10px 20px; width: 45%;">Nama Produk</td>'+'\n'+
@@ -339,16 +313,14 @@ listLabel.trim()+
 '		<td style="padding: 10px 20px; width: 15%;">Harga</td>'+'\n'+
 '		<td style="padding: 10px 20px; width: 15%;">Subtotal</td>'+'\n'+
 '	</tr>'+'\n'+
-''+'\n'+
-''+'\n'+
-listInvoice+
-'		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
-'			<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
-'			<td></td>'+'\n'+
-'			<td>'+beratPkt+' gr</td>'+'\n'+
-'			<td></td>'+'\n'+
-'			<td>Rp. '+ongkir+'</td>'+'\n'+
-'		</tr>'+'\n'+
+'	'+listInvoice+
+'	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
+'		<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
+'		<td></td>'+'\n'+
+'		<td>'+beratPkt+' gr</td>'+'\n'+
+'		<td></td>'+'\n'+
+'		<td>Rp. '+ongkir+'</td>'+'\n'+
+'	</tr>'+'\n'+
 '		<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '			<td colspan="5">Diskon</td>'+'\n'+
 '			<td>Rp. '+diskon+'</td>'+'\n'+
@@ -365,7 +337,6 @@ listInvoice+
 '			<td colspan="5"><span style="font-weight: 700; font-size: 1rem;">TOTAL</span></td>'+'\n'+
 '		<td><span style="font-weight: 700; font-size: 1rem;">Rp. '+total+'</span></td>'+'\n'+
 '	</tr>'+'\n'+
-''+'\n'+
 '	<tr>'+'\n'+
 '		<td colspan="6">'+'\n'+
 '			<hr style="border-color: #ddd; border-style: dotted;">'+'\n'+
@@ -374,7 +345,7 @@ listInvoice+
 '				'+'\n'+
 '			<tr>'+'\n'+
 '			<td style="vertical-align: top;margin: 0;padding: 10px 0;">'+'\n'+
-'				<p style="line-height: 1em;margin: 0;padding: 0 0 0 20px;font-size:12px;">KODE CS:   '+kodeCS+'</p>'+'\n'+
+'				<p style="line-height: 1em;margin: 0;padding: 0 0 0 20px;font-size:12px;">KODE CS:&nbsp&nbsp'+kodeCS+'</p>'+'\n'+
 '			</td>'+'\n'+
 '			<td colspan="4">'+'\n'+
 '				<p  class="note-inv" style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
@@ -466,10 +437,10 @@ listInvoice+
 '	</tr>'+'\n'+
 '			<tr class="note_v2">'+'\n'+
 '			<td class="py" colspan="3">'+'\n'+
-'				<p class="p-0"><strong>KODE CS:   </strong>'+kodeCS+'</p>			</td>'+'\n'+
+'				<p class="p-0"><strong>KODE CS:&nbsp&nbsp</strong>'+kodeCS+'</p>			</td>'+'\n'+
 '		</tr>'+'\n'+
-'	</table>'+'\n'+
-''+'\n'+
+'</table>'+'\n'+
+
 '<table cellspacing="0" class="print-data printInvoice-v2" font-size="12px;" style="display: none;" id="1">'+'\n'+
 '	<tr>'+'\n'+
 '					<td colspan="6" class="text-center">'+'\n'+
@@ -610,12 +581,12 @@ listInvoice+
 '		</tr>'+'\n'+
 '		<tr class="note-inv">'+'\n'+
 '			<td colspan="6">'+'\n'+
-'				<p>KODE CS: </p>'+'\n'+
+'				<p>KODE CS: '+kodeCS+'</p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr class="note-inv">'+'\n'+
 '			<td colspan="6">'+'\n'+
-'				<p>'+kodeCS+'</p>'+'\n'+
+'				<p></p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		'+'\n'+
@@ -688,7 +659,7 @@ listInvoice+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table></div>'+'\n'+
-''+'\n'+
+
 '<script type="text/javascript" src="https://app.ngorder.id/assets/js/jquery-1.11.3.min.js"></script>'+'\n'+
 '     '+'\n'+
 '<script>'+'\n'+
