@@ -218,9 +218,7 @@ var template =
 '	<tr>'+'\n'+
 '		<td width="40%" valign="top">'+'\n'+
 '			<p class="receiver-name ls-1"> '+penerima+'</p>'+'\n'+
-'			<p class="address">Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
-'				Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
-'				Provinsi Bali <br>'+'\n'+
+'			<p class="address">'+alamat+'\n'+
 '				Telp: 0818558385</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td style="font-size: 12px;" width="30%" valign="top" class="orderdetail">'+'\n'+
@@ -423,9 +421,7 @@ var template =
 '		<td colspan="5">'+'\n'+
 '			<p style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
 '				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">'+penerima+'</span><br>'+'\n'+
-'				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
-'				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
-'				Prov. Bali <br>'+'\n'+
+'				'+alamat+'\n'+
 '				Telp: 0818558385			</p>'+'\n'+
 ''+'\n'+
 '		</td>'+'\n'+
@@ -452,9 +448,7 @@ var template =
 '		</td>'+'\n'+
 '		<td class="py bb-1" colspan="2">'+'\n'+
 '			<span class="ttu ls-1"><strong>'+penerima+'</strong></span> <br>'+'\n'+
-'			Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
-'			Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
-'			Provinsi Bali <br>'+'\n'+
+'			'+alamat+'\n'+
 '			Telp: 0818558385		</td>'+'\n'+
 '	</tr>'+'\n'+
 '	<tr class="orderdetail_v2">'+'\n'+
@@ -682,9 +676,7 @@ var template =
 '	<tr class="alamat_pengiriman">'+'\n'+
 '		<td colspan="6">'+'\n'+
 '			<p>'+'\n'+
-'				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
-'				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
-'				Prov. Bali				<br>'+'\n'+
+'				'+alamat+'\n'+
 '				Telp: 0818558385				<br>'+'\n'+
 '				<span class="kurir">Kurir: WAHANA-Normal Service</span>'+'\n'+
 '			</p>'+'\n'+
