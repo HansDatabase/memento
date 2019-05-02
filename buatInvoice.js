@@ -9,11 +9,13 @@ function buatInvoice(data) {
   var nomorD = data["Pengirim"];
   var listO = data["List Order"];
   var eksp = data["Ekspedisi"];
+  var serv = data["Service"];
   var beratPkt = data["Berat Paket"];
   var listB = data["List Barang"];
   var diskon = data["Diskon"];
   var subtot = data["Subtotal"];
   var total = data["Total"];
+  var status = data["Status"].toUpperCase();
   
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
@@ -207,7 +209,7 @@ var template =
 '			Kepada:'+'\n'+
 '		</td>'+'\n'+
 '		<td class="plabel orderdetail" valign="bottom">'+'\n'+
-'			Order <span class="tgl_order" style="display:none;">(1 April 2019)'+'\n'+
+'			Order <span class="tgl_order" style="display:none;">['+waktu+']'+'\n'+
 '		</td>'+'\n'+
 '		<td class="fragile" width="30%" rowspan="4">'+'\n'+
 '			<img class="img-fragile" src="https://app.ngorder.id/assets/img/fragile.png " alt="">'+'\n'+
@@ -218,11 +220,9 @@ var template =
 ''+'\n'+
 '	<tr>'+'\n'+
 '		<td width="40%" valign="top">'+'\n'+
-'			<p class="receiver-name ls-1"> YULLI HENIK</p>'+'\n'+
-'			<p class="address">Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
-'				Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
-'				Provinsi Bali <br>'+'\n'+
-'				Telp: 0818558385</p>'+'\n'+
+'			<p class="receiver-name ls-1"> '+penerima+'</p>'+'\n'+
+'			<p class="address">'+alamat+'<br>'+'\n'+
+'				Telp: '+nomorP+'</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td style="font-size: 12px;" width="30%" valign="top" class="orderdetail">'+'\n'+
 ''+'\n'+
@@ -231,16 +231,8 @@ var template =
 '					<li>	'+'\n'+
 '					'+'\n'+
 '						<span class="left">'+'\n'+
-'						RESTA OVERALL  </span>'+'\n'+
-'						<span class="right">x 1</span>'+'\n'+
-'					</li>'+'\n'+
-''+'\n'+
-'									'+'\n'+
-'					<li>	'+'\n'+
-'					'+'\n'+
-'						<span class="left">'+'\n'+
-'						CALYSTA MAXY  MAROON</span>'+'\n'+
-'						<span class="right">x 1</span>'+'\n'+
+'						'+listO+'  </span>'+'\n'+
+'						<span class="right"></span>'+'\n'+
 '					</li>'+'\n'+
 ''+'\n'+
 '							</ul>'+'\n'+
@@ -252,12 +244,12 @@ var template =
 '		<td>'+'\n'+
 '			<p class="plabel">Pengirim: </p>'+'\n'+
 '			<p class="sender" >'+'\n'+
-'				NabiilahStore<br>082242783494			</p>'+'\n'+
+'				'+pengirim+'<br>'+nomorD+'			</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td>'+'\n'+
-'			<p><strong>KODE CS: </strong>A</p>'+'\n'+
+'			<p><strong>KODE CS: </strong>'+kodeCS+'</p>'+'\n'+
 '		 				 	<div class="expedisi">'+'\n'+
-'			 		WAHANA-Normal Service			 		(0.75 Kg)'+'\n'+
+'			 		'+eksp+'-'+serv+'			 		(      )'+'\n'+
 ''+'\n'+
 '			 					 	</div>'+'\n'+
 ''+'\n'+
@@ -281,11 +273,11 @@ var template =
 '				<td colspan="2" style="margin: 0;vertical-align: top;">'+'\n'+
 '			<h5 style="padding:0; margin:0.5em 0;">'+'\n'+
 '				<strong>Tanggal:</strong>'+'\n'+
-'				<span style="clear:both;display:block;font-weight: normal;">1 April 2019</span>'+'\n'+
+'				<span style="clear:both;display:block;font-weight: normal;">'+waktu+'</span>'+'\n'+
 '			</h5>'+'\n'+
 '			<h5 style="padding:0; margin:0.5em 0;">'+'\n'+
 '				<strong>Nomor Invoice:</strong>'+'\n'+
-'				<span style="clear:both;display:block;font-weight: normal;">INV.2019.04.01.13354</span>'+'\n'+
+'				<span style="clear:both;display:block;font-weight: normal;">INV.'+id+'</span>'+'\n'+
 '			</h5>'+'\n'+
 ''+'\n'+
 '		</td>'+'\n'+
@@ -293,13 +285,13 @@ var template =
 ''+'\n'+
 '	<tr style="margin: 0; padding: 20px;">'+'\n'+
 '		<td colspan="4">'+'\n'+
-'			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">YULLI HENIK</span></strong></p>'+'\n'+
+'			<p style="line-height: 1em;margin: 0;padding: 20px 0 0;"><strong>Kepada <span style="text-transform: capitalize;">'+penerima+'</span></strong></p>'+'\n'+
 '			<p style="font-size: 12px;line-height: 2em;">Terima kasih telah berbelanja di '+'\n'+
 '			NabiilahStore. Berikut adalah rincian orderan Anda:</p>'+'\n'+
 '		</td>'+'\n'+
 '		'+'\n'+
 '		<td colspan="2" style="font-size: 0.85rem;">'+'\n'+
-'							<strong><span style="color: #00C853;">PAID</span> (1 April 2019)</strong>'+'\n'+
+'							<strong><span style="color: #00C853;">'+status+'</span> ['+waktu+']</strong>'+'\n'+
 '						'+'\n'+
 '		</td>'+'\n'+
 '	'+'\n'+
@@ -340,7 +332,7 @@ var template =
 '		<td colspan="2">'+'\n'+
 '			<strong>'+'\n'+
 ''+'\n'+
-'				WAHANA-Normal Service			</strong>'+'\n'+
+'				'+eksp+'-'+serv+'			</strong>'+'\n'+
 '		</td>'+'\n'+
 '		<td></td>'+'\n'+
 '		<td>0.75 Kg</td>'+'\n'+
@@ -376,11 +368,11 @@ var template =
 '				'+'\n'+
 '			<tr>'+'\n'+
 '			<td style="vertical-align: top;margin: 0;padding: 10px 0;">'+'\n'+
-'				<p style="line-height: 1em;margin: 0;padding: 0 0 0 20px;font-size:12px;">Note:</p>'+'\n'+
+'				<p style="line-height: 1em;margin: 0;padding: 0 0 0 20px;font-size:12px;">KODE CS: '+kodeCS+'</p>'+'\n'+
 '			</td>'+'\n'+
 '			<td colspan="4">'+'\n'+
 '				<p  class="note-inv" style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
-'					A				</p>'+'\n'+
+'									</p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		'+'\n'+
@@ -423,11 +415,9 @@ var template =
 '		</td>'+'\n'+
 '		<td colspan="5">'+'\n'+
 '			<p style="font-size: 12px;line-height: 1.25em;margin:0;padding: 10px 0;">'+'\n'+
-'				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">YULLI HENIK</span><br>'+'\n'+
-'				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
-'				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
-'				Prov. Bali <br>'+'\n'+
-'				Telp: 0818558385			</p>'+'\n'+
+'				<span style="font-weight: bold; font-size:16px; text-transform: capitalize;">'+penerima+'</span><br>'+'\n'+
+'				'+alamat+'<br>'+'\n'+
+'				Telp: '+nomorP+'			</p>'+'\n'+
 ''+'\n'+
 '		</td>'+'\n'+
 '		'+'\n'+
@@ -439,11 +429,11 @@ var template =
 '		</td>'+'\n'+
 ''+'\n'+
 '		<td class="py bb-1" style="vertical-align: top;">'+'\n'+
-'			NabiilahStore (082242783494)		</td>'+'\n'+
+'			'+pengirim+' ('+nomorD+')		</td>'+'\n'+
 ''+'\n'+
 '		<td class="bb-1 exp">'+'\n'+
-'					 		<strong>WAHANA-Normal Service</strong>		 	 <br>'+'\n'+
-'		 	(0.75 kg)'+'\n'+
+'					 		<strong>'+eksp+'-'+serv+'</strong>		 	 <br>'+'\n'+
+'		 	'+'\n'+
 '		</td>'+'\n'+
 ''+'\n'+
 '			</tr>'+'\n'+
@@ -452,32 +442,25 @@ var template =
 '			<p class="lead pb-025">TO:</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="py bb-1" colspan="2">'+'\n'+
-'			<span class="ttu ls-1"><strong>YULLI HENIK</strong></span> <br>'+'\n'+
-'			Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali<br>'+'\n'+
-'			Kec. Denpasar Timur,  Kota Denpasar,  <br>'+'\n'+
-'			Provinsi Bali <br>'+'\n'+
-'			Telp: 0818558385		</td>'+'\n'+
+'			<span class="ttu ls-1"><strong>'+penerima+'</strong></span> <br>'+'\n'+
+'			'+alamat+'<br>'+'\n'+
+'			Telp: '+nomorP+'		</td>'+'\n'+
 '	</tr>'+'\n'+
 '	<tr class="orderdetail_v2">'+'\n'+
 '		<td class="py" colspan="3">'+'\n'+
-'			<p class="pb-025"><strong>ORDER <span class="po-number-v2" style="display:none;">PO#13354</span> <span class="tgl_order_v2" style="display:none;">(Senin, 1 Apr 2019)</strong></p>'+'\n'+
+'			<p class="pb-025"><strong>ORDER <span class="po-number-v2" style="display:none;">PO#'+id+'</span> <span class="tgl_order_v2" style="display:none;">(Senin, 1 Apr 2019)</strong></p>'+'\n'+
 '			<ul class="product-list" style="margin-bottom: 26px;">'+'\n'+
 '								<li>'+'\n'+
 '					<span class="left">'+'\n'+
-'					RESTA OVERALL  </span>'+'\n'+
-'					<span class="right">1 Item</span>'+'\n'+
-'				</li>'+'\n'+
-'								<li>'+'\n'+
-'					<span class="left">'+'\n'+
-'					CALYSTA MAXY  MAROON</span>'+'\n'+
-'					<span class="right">1 Item</span>'+'\n'+
+'					'+listO+'  </span>'+'\n'+
+'					<span class="right"></span>'+'\n'+
 '				</li>'+'\n'+
 '							</ul>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '			<tr class="note_v2">'+'\n'+
 '			<td class="py" colspan="3">'+'\n'+
-'				<p class="p-0"><strong>KODE CS: </strong>A</p>			</td>'+'\n'+
+'				<p class="p-0"><strong>KODE CS: </strong>'+kodeCS+'</p>			</td>'+'\n'+
 '		</tr>'+'\n'+
 '	</table>'+'\n'+
 ''+'\n'+
@@ -498,13 +481,13 @@ var template =
 '	'+'\n'+
 '	<tr class="mb-3">'+'\n'+
 '		<td class="text-left" colspan="3">'+'\n'+
-'			<span class="status_paid">Status: PAID <br>(01 April 2019)</span>	'+'\n'+
+'			<span class="status_paid">'+status+' <br>['+waktu+']</span>	'+'\n'+
 '			 '+'\n'+
 '			<span class="input_time">01 Apr 2019 12:43:27</span>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="text-right" colspan="3">'+'\n'+
 '			<p class="pb-0">'+'\n'+
-'				To:<span>YULLI HENIK</span>'+'\n'+
+'				To:<span>'+penerima+'</span>'+'\n'+
 '			</p>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
@@ -517,10 +500,10 @@ var template =
 ''+'\n'+
 '	<tr class="invoice_detail">'+'\n'+
 '		<td colspan="3">'+'\n'+
-'			<span>1 April 2019</span>'+'\n'+
+'			<span>'+waktu+'</span>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="text-right" colspan="3">'+'\n'+
-'			<span>INV.2019.04.01.13354</span>'+'\n'+
+'			<span>INV.'+id+'</span>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 ''+'\n'+
@@ -571,7 +554,7 @@ var template =
 '	'+'\n'+
 '	<tr class="item-detail">'+'\n'+
 '		<td colspan="2">'+'\n'+
-'			WAHANA-Normal Service		</td>'+'\n'+
+'			'+eksp+'-'+serv+'		</td>'+'\n'+
 '		<td class="text-center">1</td>'+'\n'+
 '		<td>0.75 Kg</td>'+'\n'+
 '		<td class="text-right">10,000</td>'+'\n'+
@@ -621,13 +604,13 @@ var template =
 '		</tr>'+'\n'+
 '		<tr class="note-inv">'+'\n'+
 '			<td colspan="6">'+'\n'+
-'				<p>Note:</p>'+'\n'+
+'				<p>KODE CS: '+kodeCS+'</p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		<tr class="note-inv">'+'\n'+
 '			<td colspan="6">'+'\n'+
 '				<p>'+'\n'+
-'					A				</p>'+'\n'+
+'									</p>'+'\n'+
 '			</td>'+'\n'+
 '		</tr>'+'\n'+
 '		'+'\n'+
@@ -683,11 +666,9 @@ var template =
 '	<tr class="alamat_pengiriman">'+'\n'+
 '		<td colspan="6">'+'\n'+
 '			<p>'+'\n'+
-'				Perum Taman Lembusura permai blok VII no 1, Br Poh Gading, Ubung kaja, Denpasar Bali '+'\n'+
-'				Kec. Denpasar Timur,  Kota Denpasar,  '+'\n'+
-'				Prov. Bali				<br>'+'\n'+
-'				Telp: 0818558385				<br>'+'\n'+
-'				<span class="kurir">Kurir: WAHANA-Normal Service</span>'+'\n'+
+'				'+alamat+'<br>'+'\n'+
+'				Telp: '+nomorP+'				<br>'+'\n'+
+'				<span class="kurir">Kurir: '+eksp+'-'+serv+'</span>'+'\n'+
 '			</p>'+'\n'+
 ''+'\n'+
 '		</td>'+'\n'+
