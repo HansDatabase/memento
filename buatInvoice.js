@@ -1,5 +1,5 @@
 function buatInvoice(data) {
-  var id = data["ID"]
+  var id = data["ID"];
   
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
