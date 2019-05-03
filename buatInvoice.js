@@ -18,7 +18,7 @@ function toDuit(xxx) {
 
 function buatInvoice(data) {
   var invoicePrint = '';
-message("1 "+data.length);
+message("dalam ");
  for (var z in data) { //inv
   var id = data[z][0];
   var penerima = data[z][1];
