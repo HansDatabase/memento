@@ -61,7 +61,8 @@ function buatInvoice(data) {
 	'<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
 	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
-  }
+  };
+	 
   var invoicePrint +=
   
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+toString(z+1)+'">'+'\n'+
