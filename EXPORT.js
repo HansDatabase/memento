@@ -18,7 +18,6 @@ function toDuit(xxx) {
 
 function buatInvoice(data) {
   var invoicePrint = '';
-message("dalam ");
  for (var z in data) { //inv
   var id = data[z][0];
   var penerima = data[z][1];
@@ -57,7 +56,6 @@ message("dalam ");
 	'</tr>'+'\n';
   }; //brg
 
-message("server "+z);
 invoicePrint += 'testing ';
 /*
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
