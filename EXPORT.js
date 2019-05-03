@@ -736,8 +736,10 @@ return template;
 }
 
 var e = selectedEntries();
-var nm = "print";
-var f = file("/sdcard/"+nm+".html");
+var skrg = moment().toDate().getTime();
+var nm = moment(skrg).format("DD-MM-YYYY");
+var jm = moment(skrg).format("hh:mm");
+var f = file("/sdcard/"+nm+" "+jm+".html");
 
 var data = [];
 for (var x in e) {
