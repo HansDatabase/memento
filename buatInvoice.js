@@ -62,7 +62,7 @@ function buatInvoice(data) {
 	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
   }; //brg
-/*	 
+	 
   var invoicePrint +=
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
@@ -442,7 +442,7 @@ function buatInvoice(data) {
 '	</tr>'+'\n'+
 '</table>\n'
 ;
-*/
+
  }; //inv
 
 var template =
