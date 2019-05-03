@@ -57,7 +57,7 @@ function buatInvoice(data) {
 	'</tr>'+'\n';
   }; //brg
 
-message(listLabel);
+message("server");
 invoicePrint += 'testing ';
 /*
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
