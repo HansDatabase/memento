@@ -62,7 +62,6 @@ b = index dari:
   }
   var invoicePrint =
   
-//TABEL 1
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="1">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
 '			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
@@ -100,9 +99,8 @@ b = index dari:
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
-//TABEL 1
 
-//TABEL 2
+
 '<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="1">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
 '		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" style="width: 64px;"></td>'+'\n'+
@@ -210,9 +208,8 @@ b = index dari:
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
-//TABEL 2
 
-//TABEL 3
+
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabelV2" style="display: none; font-size: .775rem;" id="1">'+'\n'+
 '	<tr>'+'\n'+
 '		<td class="py bb-1 to">'+'\n'+
@@ -253,9 +250,8 @@ b = index dari:
 '		<td class="py" colspan="3"><p class="p-0"><strong>KODE CS:&nbsp&nbsp</strong>'+kodeCS+'</p></td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
-//TABEL 3
 
-//TABEL 4
+
 '<table cellspacing="0" class="print-data printInvoice-v2" font-size="12px;" style="display: none;" id="1">'+'\n'+
 '	<tr>'+'\n'+
 '					<td colspan="6" class="text-center">'+'\n'+
@@ -448,9 +444,9 @@ b = index dari:
 '				NabiilahStore			</span>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-'</table>'+'\n';
-//TABEL 4
-  
+'</table>';
+
+
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
 '<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">'+'\n'+
