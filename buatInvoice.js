@@ -62,7 +62,7 @@ function buatInvoice(data) {
 	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
   }
-	 
+/*	 
   var invoicePrint +=
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
@@ -100,7 +100,7 @@ function buatInvoice(data) {
 '		 	<div class="expedisi awb"></div>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-'</table>'+'\n';/*+
+'</table>'+'\n'+
 '<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="'+(z+1)+'">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
 '		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" style="width: 64px;"></td>'+'\n'+
@@ -440,9 +440,9 @@ function buatInvoice(data) {
 '				NabiilahStore			</span>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-'</table>\n'*/
+'</table>\n'
 ;
-
+*/
  };
 
 var template =
