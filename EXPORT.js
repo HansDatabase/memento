@@ -762,10 +762,12 @@ data[x][14] = e[x].field("Diskon");
 data[x][15] = e[x].field("Subtotal");
 data[x][16] = e[x].field("Total");
 data[x][17] = e[x].field("Status");
+e[x].set("Status","Sudah Diprint");
+e[x].set("Waktu Diprint",now);
 }
 
 var expor = buatInvoice(data);
-
 f.write(expor);
 f.close();
-message("Berhasil ekspor "+nm+".html")
+
+message("Berhasil ekspor "+nm+" "+jm+".html")
