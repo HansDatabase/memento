@@ -57,9 +57,9 @@ function buatInvoice(data) {
 	'</tr>'+'\n';
   }; //brg
 
-/*
-var invoicePrint += 'testing ';
 
+var invoicePrint += 'testing ';
+/*
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
 '			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
