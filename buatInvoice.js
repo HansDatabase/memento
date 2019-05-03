@@ -37,7 +37,7 @@ function buatInvoice(data) {
   var diskon = toDuit(data[z][14]);
   var subtot = data[z][15];
   var total = toDuit(data[z][16]);
-  var status = data[z][17].toUpperCase();
+  var statusz = data[z][17].toUpperCase();
   
   var barang = listB.split("\n");
   var barangs = [];
@@ -125,7 +125,7 @@ function buatInvoice(data) {
 '			<p style="font-size: 12px;line-height: 2em;">Terima kasih telah berbelanja di NabiilahStore. Berikut adalah rincian orderan Anda:</p>'+'\n'+
 '		</td>'+'\n'+
 '		<td colspan="2" style="font-size: 0.85rem;">'+'\n'+
-'			<strong><span style="color: #00C853;">'+status+'</span> ['+waktu+']</strong>'+'\n'+
+'			<strong><span style="color: #00C853;">'+statusz+'</span> ['+waktu+']</strong>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '	<tr>'+'\n'+
@@ -270,7 +270,7 @@ function buatInvoice(data) {
 '	</tr>'+'\n'+
 '	<tr class="mb-3">'+'\n'+
 '		<td class="text-left" colspan="3">'+'\n'+
-'			<span class="status_paid">'+status+' <br>['+waktu+']</span>	'+'\n'+
+'			<span class="status_paid">'+statusz+' <br>['+waktu+']</span>	'+'\n'+
 '			 '+'\n'+
 '			<span class="input_time">01 Apr 2019 12:43:27</span>'+'\n'+
 '		</td>'+'\n'+
