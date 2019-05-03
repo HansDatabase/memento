@@ -17,7 +17,7 @@ function toDuit(xxx) {
 }
 
 function buatInvoice(data) {
-  var invoicePrint = '';
+  var invoicePrint = 'coba';
 
  for (var z in data) { //inv
   var id = data[z][0];
@@ -58,7 +58,7 @@ function buatInvoice(data) {
   }; //brg
 
 
-var invoicePrint = 'testing ';
+var invoicePrint = invoicePrint + 'testing ';
 /*
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
