@@ -52,7 +52,7 @@ function buatInvoice(data) {
     listLabel += '<li><span class="left">'+barangs[i][1]+'</span></li>\n';
 	listInvoice +=
 	'<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
-	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
+	'	<td colspan="2">['+barangs[i][0]+'] '+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
   }; //brg
 
