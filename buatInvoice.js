@@ -19,8 +19,8 @@ function toDuit(xxx) {
 function buatInvoice(data) {
   var invoicePrint = "";
 
- for (var z in data[]) { //inv
-	 message(data[z][1]);
+ for (var z in data) { //inv
+	 //message(data[z][1]);
   var id = data[z][0];
   var penerima = data[z][1];
   var kodeCS = data[z][2];
