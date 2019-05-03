@@ -63,8 +63,8 @@ function buatInvoice(data) {
 	'</tr>'+'\n';
   }
 	 
-  var invoicePrint += {
-'<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+toString(z+1)+'">'+'\n'+
+  var invoicePrint +=
+'<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
 '			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
 '			<div class="shop-info"><h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4><p>Distributor baju muslim </p></div>'+'\n'+
@@ -101,7 +101,7 @@ function buatInvoice(data) {
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
-'<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="'+toString(z+1)+'">'+'\n'+
+'<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="'+(z+1)+'">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
 '		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" style="width: 64px;"></td>'+'\n'+
 '		<td colspan="3" style="margin: 0;vertical-align: top;">'+'\n'+
@@ -208,7 +208,7 @@ function buatInvoice(data) {
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
-'<table width="100%" border="0" cellspacing="0" class="print-data printLabelV2" style="display: none; font-size: .775rem;" id="'+toString(z+1)+'">'+'\n'+
+'<table width="100%" border="0" cellspacing="0" class="print-data printLabelV2" style="display: none; font-size: .775rem;" id="'+(z+1)+'">'+'\n'+
 '	<tr>'+'\n'+
 '		<td class="py bb-1 to">'+'\n'+
 '			<strong>FROM:</strong>'+'\n'+
@@ -248,7 +248,7 @@ function buatInvoice(data) {
 '		<td class="py" colspan="3"><p class="p-0"><strong>KODE CS:&nbsp&nbsp</strong>'+kodeCS+'</p></td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>'+'\n'+
-'<table cellspacing="0" class="print-data printInvoice-v2" font-size="12px;" style="display: none;" id="'+toString(z+1)+'">'+'\n'+
+'<table cellspacing="0" class="print-data printInvoice-v2" font-size="12px;" style="display: none;" id="'+(z+1)+'">'+'\n'+
 '	<tr>'+'\n'+
 '					<td colspan="6" class="text-center">'+'\n'+
 '				<h3 class="text-logo nama_toko">NABIILAHSTORE</h3>'+'\n'+
@@ -440,7 +440,7 @@ function buatInvoice(data) {
 '				NabiilahStore			</span>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
- '</table>\n';}
+'</table>\n';
 
  };
 
