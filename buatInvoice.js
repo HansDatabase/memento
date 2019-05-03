@@ -18,7 +18,7 @@ function toDuit(xxx) {
 
 function buatInvoice(data) {
   var invoicePrint = '';
-/*
+
  for (var z in data) { //inv
   var id = data[z][0];
   var penerima = data[z][1];
@@ -57,7 +57,7 @@ function buatInvoice(data) {
 	'</tr>'+'\n';
   }; //brg
 
-
+/*
 var invoicePrint += 'testing ';
 
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
@@ -437,8 +437,9 @@ var invoicePrint += 'testing ';
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>\n';
- }; //inv
 */
+ }; //inv
+
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
 '<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">'+'\n'+
