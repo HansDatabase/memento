@@ -64,8 +64,8 @@ function buatInvoice(data) {
 	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
   }; //brg
-*/	 
-  var invoicePrint +=
+*/
+var invoicePrint +=
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
 '			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
