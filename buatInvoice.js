@@ -44,14 +44,7 @@ function buatInvoice(data) {
   for (var j in barang) { //ptg
     barangs[j] = potong(barang[j],",");
   }; //ptg
-	/*
-	cara akses array barangs[a][b]
-	a = index barang yg ke-a, dimulai dari 0
-	b = index dari:
-		0 = barcode
-		1 = nama & warna barang
-		2 = harga
-	*/
+
   var listLabel = '';
   var listInvoice = '';
 
