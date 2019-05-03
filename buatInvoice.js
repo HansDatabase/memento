@@ -17,7 +17,7 @@ function toDuit(value) {
 }
 
 function buatInvoice(data) {
-  var invoicePrint = "";
+  var invoicePrint = '';
 
  for (var z in data) {
   var id = data[z][0];
@@ -52,8 +52,8 @@ function buatInvoice(data) {
 		1 = nama & warna barang
 		2 = harga
 	*/
-  var listLabel = "";
-  var listInvoice = "";
+  var listLabel = '';
+  var listInvoice = '';
   for (var i in barang) {
     var hrg = toDuit(barangs[i][2]);
     listLabel += '<li><span class="left">'+barangs[i][1]+'</span></li>\n';
