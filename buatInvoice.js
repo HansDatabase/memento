@@ -19,7 +19,7 @@ function toDuit(value) {
 function buatInvoice(data) {
   var invoicePrint = "";
 
- for (var z in data) {
+ for (var z in data) { //inv
   var id = data[z][0];
   var penerima = data[z][1];
   var kodeCS = data[z][2];
@@ -41,9 +41,9 @@ function buatInvoice(data) {
   
   var barang = listB.split("\n");
   var barangs = [];
-  for (var j in barang) {
+  for (var j in barang) { //ptg
     barangs[j] = potong(barang[j],",");
-  }
+  }; //ptg
 	/*
 	cara akses array barangs[a][b]
 	a = index barang yg ke-a, dimulai dari 0
@@ -54,14 +54,14 @@ function buatInvoice(data) {
 	*/
   var listLabel = '';
   var listInvoice = '';
-  for (var i in barang) {
+  for (var i in barang) { //brg
     var hrg = toDuit(barangs[i][2]);
     listLabel += '<li><span class="left">'+barangs[i][1]+'</span></li>\n';
 	listInvoice +=
 	'<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
 	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
-  }
+  }; //brg
 /*	 
   var invoicePrint +=
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
@@ -443,7 +443,7 @@ function buatInvoice(data) {
 '</table>\n'
 ;
 */
- };
+ }; //inv
 
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
