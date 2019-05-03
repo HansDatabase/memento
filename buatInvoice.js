@@ -20,7 +20,6 @@ function buatInvoice(data) {
   var invoicePrint = "";
 
  for (var z in data) { //inv
-	 message(data[z][1]);
   var id = data[z][0];
   var penerima = data[z][1];
   var kodeCS = data[z][2];
@@ -447,6 +446,7 @@ var invoicePrint +=
 
  }; //inv
 
+message(invoicePrint);
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
 '<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">'+'\n'+
