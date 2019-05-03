@@ -17,39 +17,41 @@ function toDuit(value) {
 }
 
 function buatInvoice(data) {
-  var id = data["ID"];
-  var penerima = data["Penerima"];
-  var kodeCS = data["Kode CS"];
-  var waktu = data["Waktu Closing"];
-  var alamat = data["Alamat"];
-  var nomorP = data["NomorP"];
-  var pengirim = data["Pengirim"];
-  var nomorD = data["NomorD"];
-  var listO = data["List Order"];
-  var eksp = data["Ekspedisi"];
-  var serv = data["Service"];
-  var beratPkt = data["Berat Paket"];
-  var ongkir = toDuit(data["Ongkir"]);
-  var listB = data["List Barang"];
-  var diskon = toDuit(data["Diskon"]);
-  var subtot = data["Subtotal"];
-  var total = toDuit(data["Total"]);
-  var status = data["Status"].toUpperCase();
+  var invoicePrint = "";
+
+ for (var z in data) {
+  var id = data[z][0];
+  var penerima = data[z][1];
+  var kodeCS = data[z][2];
+  var waktu = data[z][3];
+  var alamat = data[z][4];
+  var nomorP = data[z][5];
+  var pengirim = data[z][6];
+  var nomorD = data[z][7];
+  var listO = data[z][8];
+  var eksp = data[z][9];
+  var serv = data[z][10];
+  var beratPkt = data[z][11];
+  var ongkir = toDuit(data[z][12]);
+  var listB = data[z][13];
+  var diskon = toDuit(data[z][14]);
+  var subtot = data[z][15];
+  var total = toDuit(data[z][16]);
+  var status = data[z][17].toUpperCase();
   
   var barang = listB.split("\n");
   var barangs = [];
   for (var i in barang) {
     barangs[i] = potong(barang[i],",");
   }
-/*
-cara akses array barangs[a][b]
-a = index barang yg ke-a, dimulai dari 0
-b = index dari:
-    0 = barcode
-    1 = nama & warna barang
-    2 = harga
-*/
-  var invoicePrint = "";
+	/*
+	cara akses array barangs[a][b]
+	a = index barang yg ke-a, dimulai dari 0
+	b = index dari:
+		0 = barcode
+		1 = nama & warna barang
+		2 = harga
+	*/
   var listLabel = "";
   var listInvoice = "";
   for (var i in barang) {
@@ -60,9 +62,9 @@ b = index dari:
 	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
   }
-  var invoicePrint =
+  var invoicePrint +=
   
-'<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="1">'+'\n'+
+'<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+toString(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
 '			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
 '			<div class="shop-info"><h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4><p>Distributor baju muslim </p></div>'+'\n'+
@@ -101,7 +103,7 @@ b = index dari:
 '</table>'+'\n'+
 
 
-'<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="1">'+'\n'+
+'<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="'+toString(z+1)+'">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
 '		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" style="width: 64px;"></td>'+'\n'+
 '		<td colspan="3" style="margin: 0;vertical-align: top;">'+'\n'+
@@ -136,7 +138,7 @@ b = index dari:
 '	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '		<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
 '		<td></td>'+'\n'+
-'		<td>'+beratPkt/1000+' gr</td>'+'\n'+
+'		<td>'+beratPkt/1000+' Kg</td>'+'\n'+
 '		<td></td>'+'\n'+
 '		<td>Rp. '+ongkir+'</td>'+'\n'+
 '	</tr>'+'\n'+
@@ -210,7 +212,7 @@ b = index dari:
 '</table>'+'\n'+
 
 
-'<table width="100%" border="0" cellspacing="0" class="print-data printLabelV2" style="display: none; font-size: .775rem;" id="1">'+'\n'+
+'<table width="100%" border="0" cellspacing="0" class="print-data printLabelV2" style="display: none; font-size: .775rem;" id="'+toString(z+1)+'">'+'\n'+
 '	<tr>'+'\n'+
 '		<td class="py bb-1 to">'+'\n'+
 '			<strong>FROM:</strong>'+'\n'+
@@ -252,7 +254,7 @@ b = index dari:
 '</table>'+'\n'+
 
 
-'<table cellspacing="0" class="print-data printInvoice-v2" font-size="12px;" style="display: none;" id="1">'+'\n'+
+'<table cellspacing="0" class="print-data printInvoice-v2" font-size="12px;" style="display: none;" id="'+toString(z+1)+'">'+'\n'+
 '	<tr>'+'\n'+
 '					<td colspan="6" class="text-center">'+'\n'+
 '				<h3 class="text-logo nama_toko">NABIILAHSTORE</h3>'+'\n'+
@@ -446,6 +448,7 @@ b = index dari:
 '	</tr>'+'\n'+
 '</table>';
 
+ };
 
 var template =
 '<link rel="stylesheet" href="https://app.ngorder.id/assets/css/style-print.css ">'+'\n'+
