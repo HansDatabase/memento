@@ -12,8 +12,8 @@ function potong(tek,batas) {
   return tmp;
 }
 
-function toDuit(value) {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+function toDuit(xxx) {
+    return xxx.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function buatInvoice(data) {
