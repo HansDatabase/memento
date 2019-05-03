@@ -65,6 +65,7 @@ function buatInvoice(data) {
 	'</tr>'+'\n';
   }; //brg
 
+/*
 var invoicePrint +=
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
@@ -442,9 +443,8 @@ var invoicePrint +=
 '				NabiilahStore			</span>'+'\n'+
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
-'</table>\n'
-;
-
+'</table>\n';
+*/
  }; //inv
 
 var template =
