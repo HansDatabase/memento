@@ -763,7 +763,7 @@ data[x][15] = e[x].field("Subtotal");
 data[x][16] = e[x].field("Total");
 data[x][17] = e[x].field("Status");
 e[x].set("Status","Sudah Diprint");
-e[x].set("Waktu Diprint",now);
+e[x].set("Waktu Diprint",skrg);
 }
 
 var expor = buatInvoice(data);
