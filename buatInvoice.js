@@ -18,7 +18,6 @@ function toDuit(xxx) {
 
 function buatInvoice(data) {
   var invoicePrint = '';
-message("dalam ");
  for (var z in data) { //inv
   var id = data[z][0];
   var penerima = data[z][1];
@@ -53,16 +52,15 @@ message("dalam ");
     listLabel += '<li><span class="left">'+barangs[i][1]+'</span></li>\n';
 	listInvoice +=
 	'<tr style="line-height: 1.25em;font-size: 12px; vertical-align: middle;">'+'\n'+
-	'	<td colspan="2">'+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
+	'	<td colspan="2">['+barangs[i][0]+'] '+barangs[i][1]+'</td><td>1</td><td></td><td>Rp. '+hrg+'</td><td>Rp. '+hrg+'</td>'+'\n'+
 	'</tr>'+'\n';
   }; //brg
 
-message("server "+z);
-invoicePrint += 'testing ';
-/*
+invoicePrint += 
+
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
-'			<img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" width="120">'+'\n'+
+'			<img class="img-logo" src="https://api.qrserver.com/v1/create-qr-code/?data='+id+'&size=120x120" width="120">'+'\n'+
 '			<div class="shop-info"><h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4><p>Distributor baju muslim </p></div>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="plabel" valign="bottom">'+'\n'+
@@ -99,7 +97,7 @@ invoicePrint += 'testing ';
 '</table>'+'\n'+
 '<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="'+(z+1)+'">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
-'		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://image.flaticon.com/icons/svg/33/33658.svg" style="width: 64px;"></td>'+'\n'+
+'		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://api.qrserver.com/v1/create-qr-code/?data='+id+'&size=64x64" style="width: 64px;"></td>'+'\n'+
 '		<td colspan="3" style="margin: 0;vertical-align: top;">'+'\n'+
 '			<h3 style="padding:0; margin: 0.5em 0 0;">NABIILAHSTORE</h3><p>Distributor baju muslim </p>'+'\n'+
 '		</td>'+'\n'+
@@ -132,7 +130,7 @@ invoicePrint += 'testing ';
 '	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '		<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
 '		<td></td>'+'\n'+
-'		<td>'+beratPkt/1000+' Kg</td>'+'\n'+
+'		<td>'+beratPkt+' Kg</td>'+'\n'+
 '		<td></td>'+'\n'+
 '		<td>Rp. '+ongkir+'</td>'+'\n'+
 '	</tr>'+'\n'+
@@ -437,7 +435,7 @@ invoicePrint += 'testing ';
 '		</td>'+'\n'+
 '	</tr>'+'\n'+
 '</table>\n';
-*/
+
  }; //inv
 
 var template =
@@ -736,3 +734,40 @@ invoicePrint+
 
 return template;
 }
+
+var e = selectedEntries();
+var skrg = moment().toDate().getTime();
+var nm = moment(skrg).format("DD-MM-YYYY");
+var jm = moment(skrg).format("hh:mm");
+var f = file("/sdcard/"+nm+" "+jm+".html");
+
+var data = [];
+for (var x in e) {
+   data[x] = [];
+data[x][0] = e[x].field("ID");
+data[x][1] = e[x].field("Penerima");
+data[x][2] = e[x].field("Kode CS");
+data[x][3] = moment(e[x].field("Waktu Closing")).format("DD[/]MM[/]YYYY");
+data[x][4] = e[x].field("Alamat");
+data[x][5] = e[x].field("NomorP");
+data[x][6] = e[x].field("Pengirim");
+data[x][7] = e[x].field("NomorD");
+data[x][8] = e[x].field("List Order");
+data[x][9] = e[x].field("Ekspedisi");
+data[x][10] = e[x].field("Service");
+data[x][11] = e[x].field("Berat Paket");
+data[x][12] = e[x].field("Ongkir");
+data[x][13] = e[x].field("List Barang");
+data[x][14] = e[x].field("Diskon");
+data[x][15] = e[x].field("Subtotal");
+data[x][16] = e[x].field("Total");
+data[x][17] = e[x].field("Status");
+e[x].set("Status","Sudah Diprint");
+e[x].set("Waktu Diprint",skrg);
+}
+
+var expor = buatInvoice(data);
+f.write(expor);
+f.close();
+
+message("Berhasil ekspor "+nm+" "+jm+".html")
