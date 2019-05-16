@@ -130,7 +130,7 @@ invoicePrint +=
 '	<tr style="line-height: 1.25em;font-size: 12px;">'+'\n'+
 '		<td colspan="2"><strong>'+eksp+'-'+serv+'</strong></td>'+'\n'+
 '		<td></td>'+'\n'+
-'		<td>'+beratPkt/1000+' Kg</td>'+'\n'+
+'		<td>'+beratPkt+' Kg</td>'+'\n'+
 '		<td></td>'+'\n'+
 '		<td>Rp. '+ongkir+'</td>'+'\n'+
 '	</tr>'+'\n'+
