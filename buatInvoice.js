@@ -60,7 +60,7 @@ invoicePrint +=
 
 '<table width="100%" border="0" cellspacing="0" class="print-data printLabel" id="'+(z+1)+'">'+'\n'+
 '	<tr><td width="20%" rowspan="3" style="display: none" class="text-center shop-logo">'+'\n'+
-'			<img class="img-logo" src="https://api.qrserver.com/v1/create-qr-code/?data='+id+'&size=120x120" width="120">'+'\n'+
+'			<img class="img-logo" src="https://chart.googleapis.com/chart?chs=120x120&cht=qr&chl='+id+' " width="120">'+'\n'+
 '			<div class="shop-info"><h4 style="margin:10px 0 5px;">NABIILAHSTORE</h4><p>Distributor baju muslim </p></div>'+'\n'+
 '		</td>'+'\n'+
 '		<td class="plabel" valign="bottom">'+'\n'+
@@ -97,7 +97,7 @@ invoicePrint +=
 '</table>'+'\n'+
 '<table width="100%" border="0" cellspacing="0" class="print-data printInvoice" font-size="12px;" style="display: none;" id="'+(z+1)+'">'+'\n'+
 '	<tr style="margin: 0;padding: 20px;">'+'\n'+
-'		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://api.qrserver.com/v1/create-qr-code/?data='+id+'&size=64x64" style="width: 64px;"></td>'+'\n'+
+'		<td style="margin: 0;" width="10%"><img class="img-logo" src="https://chart.googleapis.com/chart?chs=64x64&cht=qr&chl='+id+' " style="width: 64px;"></td>'+'\n'+
 '		<td colspan="3" style="margin: 0;vertical-align: top;">'+'\n'+
 '			<h3 style="padding:0; margin: 0.5em 0 0;">NABIILAHSTORE</h3><p>Distributor baju muslim </p>'+'\n'+
 '		</td>'+'\n'+
