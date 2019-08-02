@@ -9,7 +9,7 @@ var dataKaryawan = [
 "AZIZ", 
 "YAYAK", 
 "HABIB", 
-"HAFID", 
+"HAFIDZ", 
 "EKO", 
 "NOFAL", 
 ];
