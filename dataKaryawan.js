@@ -50,11 +50,11 @@ function cekTelat(wkt) {
   var stat = new Object();
 
   if (masuk>terlambat) {
-    stat.status="Terlambat";
-    stat.pesan="Wah telat nih";
+    stat.stat="Terlambat";
+    stat.msg="Wah telat nih";
   } else {
-    stat.status="Tepat Waktu";
-    stat.pesan="Joss joss semangat!! :D";
+    stat.stat="Tepat Waktu";
+    stat.msg="Joss joss semangat!! :D";
   }
   return stat;
 }
