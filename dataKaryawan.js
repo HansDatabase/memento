@@ -14,6 +14,7 @@ var dataKaryawan = [
 "NOFAL", 
 ];
 
+var absensi = lib().entries();
 var skrg = moment().toDate().getTime();
 var hariIni = moment(skrg).format("DD/MM/YY");
 
