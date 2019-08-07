@@ -11,7 +11,9 @@ var dataKaryawan = [
 "HABIB", 
 "HAFIDZ", 
 "EKO", 
-"NOFAL", 
+"NOFAL",
+"FINIS",
+"NAUMI"
 ];
 
 var skrg = moment().toDate().getTime();
