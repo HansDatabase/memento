@@ -26,6 +26,7 @@ function uid(x)  {
 
 var penerima = e[0].field("Penerima");
 var id = now+"-"+uid(2);
+var bank = arg("Transfer Ke Bank?");
 
 //Validasi seleksi entry
 for (var x in e) {
@@ -106,7 +107,7 @@ if (jum==0) {
 var beratBulat = bulatkan(berat);
 var ongkirPaket = ongkir*beratBulat;
 
-var data = "{\"fields\": {\"service\": {\"stringValue\": \""+serv+"\"}, \"cs\": {\"stringValue\": \""+kodeCS+"\"}, \"nPenerima\": {\"stringValue\": \""+hpP+"\"}, \"nPengirim\": {\"stringValue\": \""+hpD+"\"}, \"ekspedisi\": {\"stringValue\": \""+eksp+"\"}, \"alamat\": {\"stringValue\": \""+alamat+"\"}, \"berat\": {\"integerValue\": \""+beratBulat+"\"}, \"status\": {\"stringValue\": \"Cek Mutasi\"}, \"ongkir\": {\"integerValue\": \""+ongkir+"\"}, \"pengirim\": {\"stringValue\": \""+pengirim+"\"}, \"diskon\": {\"integerValue\": \""+diskon+"\"}, \"penerima\": {\"stringValue\": \""+penerima+"\"},\"deposit\": {\"integerValue\": \""+deposit+"\"}, \"listBarang\": {\"arrayValue\": {\"values\": ["+listBarang+"]}}}}";
+var data = "{\"fields\": {\"service\": {\"stringValue\": \""+serv+"\"}, \"cs\": {\"stringValue\": \""+kodeCS+"\"}, \"nPenerima\": {\"stringValue\": \""+hpP+"\"}, \"nPengirim\": {\"stringValue\": \""+hpD+"\"}, \"ekspedisi\": {\"stringValue\": \""+eksp+"\"}, \"alamat\": {\"stringValue\": \""+alamat+"\"}, \"berat\": {\"integerValue\": \""+beratBulat+"\"}, \"bank\": {\"stringValue\": \""+bank+"\"}, \"status\": {\"stringValue\": \"Cek Mutasi\"}, \"ongkir\": {\"integerValue\": \""+ongkir+"\"}, \"pengirim\": {\"stringValue\": \""+pengirim+"\"}, \"diskon\": {\"integerValue\": \""+diskon+"\"}, \"penerima\": {\"stringValue\": \""+penerima+"\"},\"deposit\": {\"integerValue\": \""+deposit+"\"}, \"listBarang\": {\"arrayValue\": {\"values\": ["+listBarang+"]}}}}";
 
 result = http.post(host, data);
   var cek = result.body;
