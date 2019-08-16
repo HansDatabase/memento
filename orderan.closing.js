@@ -27,6 +27,7 @@ function uid(x)  {
 var penerima = e[0].field("Penerima");
 var id = now+"-"+uid(2);
 var bank = arg("Transfer Ke Bank?");
+if (bank=="") {message("Horok!"); exit();}
 
 //Validasi seleksi entry
 for (var x in e) {
