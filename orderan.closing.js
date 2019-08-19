@@ -24,8 +24,18 @@ function uid(x)  {
    return uid;
 }
 
-var penerima = e[0].field("Penerima");
 var id = now+"-"+uid(2);
+
+// Ubah Status tiap barang
+function ubahStatus() {
+   for (var i in e) {
+      e[i].set("Status","Closing");
+      e[i].set("Waktu Closing",now);
+      e[i].set("IID",id);
+   }
+}
+
+var penerima = e[0].field("Penerima");
 var bank = arg("Transfer Ke Bank?");
 if (bank=="") {message("Horok!"); exit();}
 
@@ -96,11 +106,6 @@ if (jum==0) {
     //http.headers({"content-type": "application/json"});
     //var res = http.post(db, dataBrg);
     //message(dataBrg);
-
-    e[i].set("Status","Closing");
-    e[i].set("Waktu Closing",now);
-    e[i].set("IID",id);
-    e[i].set("Status Keep","Closing");
     jum++;
   } else {message(e[i].title+" belum totalan kak!"); exit();}
 } //loop
@@ -114,7 +119,7 @@ result = http.post(host, data);
   var cek = result.body;
   var error = cek.search(new RegExp("error","i"));
   if(error==-1) {
-    message(cek);
+    ubahStatus();
     message("Closing Berhasil");
   } else {
     message("FORMAT ERROR:\n"+data);
