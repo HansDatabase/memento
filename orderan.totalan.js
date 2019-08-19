@@ -46,7 +46,7 @@ if (benar) {
     var berat = e[i].field("Berat");
     subTot += harga;
     beratPaket += berat;
-    listBrg += toko+", *"+namaBrg+" "+warnaBrg+"* @"+harga/1000+"rb\n";
+    listBrg += toko+", *"+namaBrg+"* @"+harga/1000+"rb\n";
     e[i].set("Ekspedisi",eksp);
     e[i].set("Service",serv);
     e[i].set("Ongkir Perkilo",hargaSekilo);
